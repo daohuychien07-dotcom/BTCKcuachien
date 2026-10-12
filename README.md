@@ -89,7 +89,7 @@ Hoặc mở trực tiếp file `index.html` bằng trình duyệt.
 | --- | --- |
 | Link Figma | _Điền link Figma của bạn_ |
 | Link video | _Điền link video — tên file: `CSE122-GK-SVxx-TenSinhVien-SeasonDashboard`_ |
-| Link GitHub | https://github.com/daohuychien07-dotcom/smartagri-dashboard |
+| Link GitHub | https://github.com/daohuychien07-dotcom/BTCKcuachien |
 
 ## 9. Ghi chú cho phần thuyết minh
 

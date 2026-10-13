@@ -6,22 +6,23 @@
   <meta name="description" content="SmartAgri - Season Dashboard: bảng điều khiển mùa vụ cho nông dân">
   <title>SmartAgri — Bảng điều khiển mùa vụ</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div class="app">
     <aside class="sidebar" id="sidebar">
-      <div class="brand">
+      <a class="brand" href="index.html">
         <img class="brand-logo" src="assets/logo.svg" alt="" width="40" height="40">
-        <div class="brand-text">
-          <p class="brand-name">SmartAgri</p>
-          <p class="brand-tag">Trí tuệ cho mùa vàng</p>
-        </div>
-      </div>
+        <span class="brand-text">
+          <span class="brand-name">SmartAgri</span>
+          <span class="brand-tag">Trí tuệ cho mùa vàng</span>
+        </span>
+      </a>
 
       <nav class="side-nav" aria-label="Điều hướng chính">
         <ul class="side-list">
-          <li><a class="side-link is-active" href="#section-season"><span class="side-icon" aria-hidden="true">🏠</span>Tổng quan</a></li>
+          <li><a class="side-link is-active" href="#section-season" aria-current="page"><span class="side-icon" aria-hidden="true">🏠</span>Tổng quan</a></li>
           <li><a class="side-link" href="#section-season"><span class="side-icon" aria-hidden="true">📅</span>Mùa vụ</a></li>
           <li><a class="side-link" href="diary.html"><span class="side-icon" aria-hidden="true">📝</span>Nhật ký</a></li>
           <li><a class="side-link" href="#section-weather"><span class="side-icon" aria-hidden="true">🌦️</span>Thời tiết</a></li>
@@ -31,9 +32,7 @@
         </ul>
       </nav>
 
-      <button class="btn-logout" type="button" id="logoutBtn">
-        <span aria-hidden="true">⏻</span> Đăng xuất
-      </button>
+      <a class="btn-logout" href="login.html"><span aria-hidden="true">⏻</span> Đăng xuất</a>
     </aside>
 
     <div class="content">

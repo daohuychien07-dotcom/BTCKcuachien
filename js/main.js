@@ -366,10 +366,6 @@ askForm.addEventListener('submit', function (event) {
   });
 });
 
-document.getElementById('logoutBtn').addEventListener('click', function () {
-  showToast('Bạn đã đăng xuất khỏi SmartAgri.');
-});
-
 document.getElementById('logoutBtn2').addEventListener('click', function () {
   closeDropdowns();
   showToast('Bạn đã đăng xuất khỏi SmartAgri.');

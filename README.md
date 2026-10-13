@@ -116,6 +116,7 @@ Tài khoản demo khai báo bằng hằng số `accounts` ở đầu `js/login.j
 ├── login.html          # Đăng nhập cho nông dân
 ├── register.html       # Đăng ký tài khoản nông dân
 ├── css/
+│   ├── layout.css      # Sidebar + khung trang dùng chung cho 3 trang bên trong app
 │   ├── style.css       # Style Season Dashboard
 │   ├── diary.css       # Style trang nhật ký
 │   ├── support.css     # Style trang hỗ trợ kỹ thuật
@@ -136,6 +137,15 @@ Tài khoản demo khai báo bằng hằng số `accounts` ở đầu `js/login.j
 │   └── favicon.svg
 └── README.md
 ```
+
+### Sidebar dùng chung (`css/layout.css`)
+
+Ba trang bên trong app (`index.html`, `diary.html`, `support.html`) dùng **một file sidebar chung** là `css/layout.css`, được `<link>` **trước** file CSS riêng của từng trang:
+
+- Nội dung: khung `.app` (lưới sidebar + nội dung), `.sidebar`, `.brand`, `.side-nav`, `.side-link`, `.btn-logout`, nút ☰ và đoạn `@media (max-width: 760px)` đẩy sidebar ra ngoài màn hình.
+- `position: sticky; top: 0; height: 100vh` + `.side-nav { flex: 1 }` ⇒ nút **Đăng xuất** luôn nằm sát đáy sidebar và đứng yên khi cuộn trang.
+- Markup sidebar ở 3 trang giống hệt nhau, chỉ khác 2 điểm: link đang ở trang nào thì mang `is-active` + `aria-current="page"`, và trên `index.html` các link trỏ `#section-...` (cuộn trong trang) thay vì `index.html#section-...`.
+- Trang đăng nhập/đăng ký không có sidebar nên không dùng file này.
 
 ## 10. Responsive
 

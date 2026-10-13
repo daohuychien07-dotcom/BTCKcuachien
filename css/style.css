@@ -397,6 +397,20 @@ img {
   color: var(--muted);
 }
 
+/* Link dẫn xuống trang chi tiết (Mùa vụ / Thời tiết / Trợ lý AI) */
+.card-more {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--green-700);
+  text-decoration: none;
+}
+
+.card-more:hover {
+  text-decoration: underline;
+}
+
 .weather-body {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;

@@ -6,6 +6,7 @@
   <meta name="description" content="SmartAgri - Season Dashboard: bảng điều khiển mùa vụ cho nông dân">
   <title>SmartAgri — Bảng điều khiển mùa vụ</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script src="js/display.js"></script>
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -22,13 +23,13 @@
 
       <nav class="side-nav" aria-label="Điều hướng chính">
         <ul class="side-list">
-          <li><a class="side-link is-active" href="#section-season" aria-current="page"><span class="side-icon" aria-hidden="true">🏠</span>Tổng quan</a></li>
-          <li><a class="side-link" href="#section-season"><span class="side-icon" aria-hidden="true">📅</span>Mùa vụ</a></li>
+          <li><a class="side-link is-active" href="index.html" aria-current="page"><span class="side-icon" aria-hidden="true">🏠</span>Tổng quan</a></li>
+          <li><a class="side-link" href="season.html"><span class="side-icon" aria-hidden="true">📅</span>Mùa vụ</a></li>
           <li><a class="side-link" href="diary.html"><span class="side-icon" aria-hidden="true">📝</span>Nhật ký</a></li>
-          <li><a class="side-link" href="#section-weather"><span class="side-icon" aria-hidden="true">🌦️</span>Thời tiết</a></li>
-          <li><a class="side-link" href="#section-ai"><span class="side-icon" aria-hidden="true">🤖</span>Trợ lý AI</a></li>
+          <li><a class="side-link" href="weather.html"><span class="side-icon" aria-hidden="true">🌦️</span>Thời tiết</a></li>
+          <li><a class="side-link" href="ai.html"><span class="side-icon" aria-hidden="true">🤖</span>Trợ lý AI</a></li>
           <li><a class="side-link" href="support.html"><span class="side-icon" aria-hidden="true">🎧</span>Hỗ trợ kỹ thuật</a></li>
-          <li><a class="side-link" href="#section-support"><span class="side-icon" aria-hidden="true">⚙️</span>Cài đặt</a></li>
+          <li><a class="side-link" href="settings.html"><span class="side-icon" aria-hidden="true">⚙️</span>Cài đặt</a></li>
         </ul>
       </nav>
 
@@ -61,8 +62,8 @@
               <span class="caret" aria-hidden="true">▾</span>
             </button>
             <div class="dropdown" id="userDropdown" hidden>
-              <a class="dropdown-link" href="#section-support">Hồ sơ của tôi</a>
-              <a class="dropdown-link" href="#section-support">Cài đặt tài khoản</a>
+              <a class="dropdown-link" href="settings.html">Hồ sơ của tôi</a>
+              <a class="dropdown-link" href="settings.html">Cài đặt tài khoản</a>
               <button class="dropdown-link dropdown-danger" type="button" id="logoutBtn2">Đăng xuất</button>
             </div>
           </div>
@@ -92,6 +93,8 @@
               <p class="chip-label">📆 Lịch thu hoạch dự kiến</p>
               <p class="chip-date">13/08/2026</p>
             </article>
+
+            <a class="card-more" href="season.html">Xem chi tiết mùa vụ &amp; kế hoạch canh tác →</a>
           </div>
 
           <figure class="hero-photo">
@@ -115,6 +118,7 @@
               <li><span class="w-key">💨 Gió</span><strong class="w-val">8 km/h</strong></li>
             </ul>
           </div>
+          <a class="card-more" href="weather.html">Xem dự báo 7 ngày &amp; cảnh báo →</a>
         </aside>
 
         <div class="lower">
@@ -137,6 +141,7 @@
             <button class="btn btn-primary btn-block" type="button" id="analyzeBtn" disabled>Chẩn đoán sơ bộ</button>
             <div class="ai-result" id="aiResult" hidden></div>
             <p class="ai-privacy">🔒 Dữ liệu của bạn được bảo mật và chỉ dùng để hỗ trợ chẩn đoán.</p>
+            <a class="card-more" href="ai.html">Mở trợ lý AI: hỏi đáp &amp; lịch sử →</a>
           </section>
 
           <div class="right-col">

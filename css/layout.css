@@ -162,3 +162,52 @@
     display: inline-flex;
   }
 }
+
+/* ---------- Tuỳ chọn hiển thị (lưu từ trang Cài đặt, áp dụng mọi trang) ----------
+   Các lớp này gắn lên thẻ <html>. Dùng html body / html.high-contrast .card
+   để có độ ưu tiên cao hơn rule trong CSS riêng của từng trang. */
+html {
+  font-size: var(--app-root-fs, 16px);
+}
+
+html body {
+  font-size: var(--app-body-fs, 15px);
+}
+
+html.fs-sm {
+  --app-root-fs: 15px;
+  --app-body-fs: 14px;
+}
+
+html.fs-lg {
+  --app-root-fs: 18px;
+  --app-body-fs: 17px;
+}
+
+html.fs-xl {
+  --app-root-fs: 20px;
+  --app-body-fs: 19px;
+}
+
+html.high-contrast {
+  --border: #7c8c80;
+  --muted: #3d4b41;
+}
+
+html.high-contrast body {
+  color: #000000;
+}
+
+html.high-contrast .card,
+html.high-contrast .input,
+html.high-contrast .btn,
+html.high-contrast .side-link {
+  border: 1px solid #4a5a4f;
+}
+
+html.no-motion *,
+html.no-motion *::before,
+html.no-motion *::after {
+  animation: none !important;
+  transition: none !important;
+}

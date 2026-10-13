@@ -231,6 +231,12 @@ img {
   align-items: start;
 }
 
+/* Ô chữ trong toolbar có bề rộng tối thiểu theo nội dung, nên hai cột không co
+   được khi màn hình hẹp hoặc khi chọn cỡ chữ lớn -> cho phép cột co lại. */
+.diary-grid > * {
+  min-width: 0;
+}
+
 .card h2 {
   margin: 0 0 16px;
   font-size: 1.05rem;

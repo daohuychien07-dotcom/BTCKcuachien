@@ -8,8 +8,8 @@ Trang chính của hệ thống **SmartAgri — Trí tuệ cho mùa vàng**, th�
 | --- | --- |
 | Tên đề tài BTL | SmartAgri — Hệ thống hỗ trợ quản lý mùa vụ thông minh cho nông dân |
 | Tên trang đã thực hiện | Season Dashboard — Bảng điều khiển mùa vụ (`index.html`) |
-| Trang phụ trợ | `login.html` (Đăng nhập), `register.html` (Đăng ký), `diary.html` (Nhật ký cánh đồng) và `support.html` (Yêu cầu hỗ trợ kỹ thuật) |
-| Luồng sử dụng | Đăng ký → Đăng nhập → Season Dashboard → Nhật ký cánh đồng / Hỗ trợ kỹ thuật (liên kết qua lại ở sidebar) |
+| Trang phụ trợ | `login.html` (Đăng nhập), `register.html` (Đăng ký), `diary.html` (Nhật ký) và `support.html` (Yêu cầu hỗ trợ kỹ thuật) |
+| Luồng sử dụng | Đăng ký → Đăng nhập → Season Dashboard → Nhật ký / Hỗ trợ kỹ thuật (liên kết qua lại ở sidebar) |
 | Đối tượng sử dụng | Nông dân đang quản lý một mùa vụ cụ thể (ví dụ: Vụ Lúa Mùa 2026, lô A1) |
 | Mục đích của trang | Gom toàn bộ thông tin nông dân cần mỗi ngày về một màn hình: tiến độ mùa vụ, lịch thu hoạch dự kiến, thời tiết khu vực canh tác, nhật ký hoạt động gần đây, kênh ghi nhanh công việc, kênh hỏi chuyên gia và công cụ chẩn đoán bệnh cây sơ bộ bằng ảnh. |
 
@@ -69,7 +69,7 @@ Tài khoản demo khai báo bằng hằng số `accounts` ở đầu `js/login.j
 | 5 | Nút chuyển trạng thái "Đang gửi..." có spinner rồi lưu hồ sơ | `setTimeout`, `disabled`, `Array.push` | Bấm "Đăng Ký" hợp lệ |
 | 6 | Thành công → toast xanh rồi quay về `login.html`; thất bại → toast đỏ + rung nút | `window.location.href`, `classList`, `@keyframes shake` | Sau khi gửi |
 
-## 6. Các chức năng JavaScript — Nhật ký cánh đồng (`diary.html`)
+## 6. Các chức năng JavaScript — Nhật ký (`diary.html`)
 
 | # | Chức năng | Kiến thức sử dụng | Cách kích hoạt |
 | --- | --- | --- | --- |
@@ -111,7 +111,7 @@ Tài khoản demo khai báo bằng hằng số `accounts` ở đầu `js/login.j
 ```
 .
 ├── index.html          # Trang chính: Season Dashboard
-├── diary.html          # Nhật ký cánh đồng (thêm/sửa/xoá, tìm kiếm, lọc, AI)
+├── diary.html          # Nhật ký (thêm/sửa/xoá, tìm kiếm, lọc, AI)
 ├── support.html        # Yêu cầu hỗ trợ kỹ thuật (form + danh sách + panel chuyên gia)
 ├── login.html          # Đăng nhập cho nông dân
 ├── register.html       # Đăng ký tài khoản nông dân
@@ -156,7 +156,7 @@ python -m http.server 8000
 # Đăng ký:     http://localhost:8000/register.html
 # Đăng nhập:   http://localhost:8000/login.html     (nongdan / 123456)
 # Trang chủ:   http://localhost:8000/index.html
-# Nhật ký:     http://localhost:8000/diary.html     (hoặc bấm "Nhật ký cánh đồng" ở sidebar)
+# Nhật ký:     http://localhost:8000/diary.html     (hoặc bấm "Nhật ký" ở sidebar)
 # Hỗ trợ TK:    http://localhost:8000/support.html   (hoặc bấm "Hỗ trợ" ở sidebar)
 ```
 

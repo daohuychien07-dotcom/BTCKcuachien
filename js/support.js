@@ -88,7 +88,7 @@ const requests = [
     steps: [
       'Ngừng bón phân đạm.',
       'Phun thuốc đặc trị đạo ôn 2 lần cách nhau 5 ngày.',
-      'Theo dõi và ghi lại nhật ký cánh đồng.'
+      'Theo dõi và ghi lại nhật ký.'
     ],
     doc: { name: 'Sổ tay nhận diện bệnh lúa', size: '2.1 MB' }
   },

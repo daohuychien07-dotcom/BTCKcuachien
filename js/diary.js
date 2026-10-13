@@ -1,5 +1,5 @@
 /* =========================================================
-   SmartAgri — Nhật ký cánh đồng
+   SmartAgri — Nhật ký
    1) Render danh sách nhật ký từ mảng
    2) Tìm kiếm + 3 bộ lọc + làm mới
    3) Thêm / sửa / xóa nhật ký (modal xác nhận)

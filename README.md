@@ -8,9 +8,9 @@ Trang chính của hệ thống **SmartAgri — Trí tuệ cho mùa vàng**, th�
 | --- | --- |
 | Tên đề tài BTL | SmartAgri — Hệ thống hỗ trợ quản lý mùa vụ thông minh cho nông dân |
 | Tên trang đã thực hiện | Season Dashboard — Bảng điều khiển mùa vụ (`index.html`) |
-| Trang phụ trợ | `login.html` (Đăng nhập), `register.html` (Đăng ký) |
+| Trang phụ trợ | `login.html` (Đăng nhập), `register.html` (Đăng ký), `forgot-password.html` (Quên mật khẩu) |
 | Trang chức năng | `season.html` (Mùa vụ), `diary.html` (Nhật ký), `weather.html` (Thời tiết), `ai.html` (Trợ lý AI), `support.html` (Hỗ trợ kỹ thuật), `settings.html` (Cài đặt) |
-| Luồng sử dụng | Đăng ký → Đăng nhập → Season Dashboard → 6 trang chức năng (liên kết qua lại ở sidebar) |
+| Luồng sử dụng | Đăng ký → Đăng nhập → Season Dashboard → 6 trang chức năng (liên kết qua lại ở sidebar); Quên mật khẩu đi từ link "Quên mật khẩu?" trên trang đăng nhập |
 | Đối tượng sử dụng | Nông dân đang quản lý một mùa vụ cụ thể (ví dụ: Vụ Lúa Mùa 2026, lô A1) |
 | Mục đích của trang | Gom toàn bộ thông tin nông dân cần mỗi ngày về một màn hình: tiến độ mùa vụ, lịch thu hoạch dự kiến, thời tiết khu vực canh tác, nhật ký hoạt động gần đây, kênh ghi nhanh công việc, kênh hỏi chuyên gia và công cụ chẩn đoán bệnh cây sơ bộ bằng ảnh. |
 
@@ -56,6 +56,7 @@ Trang chính của hệ thống **SmartAgri — Trí tuệ cho mùa vàng**, th�
 | 4 | Đăng nhập giả lập: nút chuyển trạng thái "Đang đăng nhập..." có spinner, rồi kiểm tra tài khoản trong mảng | `setTimeout`, vòng `for`, `disabled` | Bấm "Đăng nhập" với dữ liệu hợp lệ |
 | 5 | Sai tài khoản → báo lỗi + rung nút + toast đỏ | `classList.add/remove`, `@keyframes shake` | Nhập sai `nongdan / 123456` |
 | 6 | Đúng tài khoản → toast chào theo vai trò rồi chuyển sang `index.html` | `window.location.href`, `setTimeout` | Nhập `nongdan / 123456` (hoặc `chuyen_gia / agri2026`) |
+| 7 | Link "Quên mật khẩu?" dưới ô mật khẩu → mở `forgot-password.html` | liên kết HTML thuần | Bấm link |
 
 Tài khoản demo khai báo bằng hằng số `accounts` ở đầu `js/login.js`.
 
@@ -101,9 +102,9 @@ Tài khoản demo khai báo bằng hằng số `accounts` ở đầu `js/login.j
 | 10 | "Đóng" panel → lưới chuyển 3 cột xuống 2 cột; bấm dòng khác mở lại | `classList.add/remove`, CSS Grid | Bấm ✕ hoặc "Đóng" |
 | 11 | Dropdown thông báo, toggle sidebar mobile, toast phản hồi | `stopPropagation`, `classList.toggle`, `setTimeout` | Bấm 🔔 / ☰ / sau mỗi thao tác |
 
-## 8. Bốn trang chức năng mới
+## 8. Các trang chức năng mới
 
-Bốn trang này tách từ 4 khối trên `index.html` thành 4 trang độc lập (mỗi trang 1 file HTML + 1 file CSS + 1 file JS), dùng chung `css/layout.css` (sidebar) và `css/ui.css` (topbar, card, form, bảng, modal, toast). `index.html` vẫn giữ các khối tóm tắt và có link "Xem chi tiết…" sang trang Mùa vụ, Thời tiết, Trợ lý AI; trang Cài đặt mở từ sidebar hoặc menu avatar ("Hồ sơ của tôi" / "Cài đặt tài khoản").
+Bốn trang đầu (8.1–8.4) tách từ 4 khối trên `index.html` thành 4 trang độc lập (mỗi trang 1 file HTML + 1 file CSS + 1 file JS), dùng chung `css/layout.css` (sidebar) và `css/ui.css` (topbar, card, form, bảng, modal, toast). `index.html` vẫn giữ các khối tóm tắt và có link "Xem chi tiết…" sang trang Mùa vụ, Thời tiết, Trợ lý AI; trang Cài đặt mở từ sidebar hoặc menu avatar ("Hồ sơ của tôi" / "Cài đặt tài khoản"). Riêng 8.5 là trang mới trong luồng đăng nhập, dùng CSS riêng giống `login.css` / `register.css` nên không có sidebar.
 
 ### 8.1 Mùa vụ (`season.html`)
 
@@ -153,11 +154,29 @@ Bốn trang này tách từ 4 khối trên `index.html` thành 4 trang độc l�
 | 6 | Bảo mật: đổi mật khẩu có thanh đo độ mạnh (≥ 8 ký tự, chữ hoa, số, ký tự đặc biệt) + danh sách phiên đăng nhập, thu hồi từng phiên | `scorePassword()`, `Array.filter`, `RegExp.test` | Nhập mật khẩu / bấm "Thu hồi" |
 | 7 | Dữ liệu: liệt kê các khoá `localStorage` của app kèm dung lượng KB, xuất toàn bộ ra file `.json`, nhập file JSON, xoá sạch dữ liệu (modal xác nhận + checkbox mới bấm được nút xoá) | `Object.keys`, `Blob`, `<a download>`, `FileReader` | Bấm "Xuất dữ liệu" / "Nhập" / "Xoá toàn bộ" |
 
+### 8.5 Quên mật khẩu (`forgot-password.html`)
+
+Mở từ link **"Quên mật khẩu?"** ngay dưới ô mật khẩu trên trang `login.html`.
+
+| # | Chức năng | Kiến thức sử dụng | Cách kích hoạt |
+| --- | --- | --- | --- |
+| 1 | Một ô nhập chấp nhận **tên đăng nhập HOẶC email**, mỗi loại một luật kiểm tra: email khớp `/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/`, tên đăng nhập ≥ 4 ký tự, để trống thì báo lỗi | `RegExp.test`, `indexOf`, `trim`, `length`, `classList.toggle('is-invalid')` | Bấm "Gửi liên kết đặt lại mật khẩu" khi dữ liệu chưa hợp lệ (nút rung theo `@keyframes shake`) |
+| 2 | Xoá báo lỗi ngay khi người dùng gõ lại | event `input` | Gõ vào ô tài khoản |
+| 3 | Gửi giả lập: nút chuyển sang "Đang gửi liên kết..." có spinner rồi `setTimeout` 1,2 giây | `disabled`, `innerHTML`, `setTimeout` | Bấm nút gửi với dữ liệu hợp lệ |
+| 4 | Thẻ đổi sang trạng thái **"Đã gửi liên kết"** (panel thứ hai), tiêu đề nhận focus để người dùng bàn phím/bộ đọc màn hình biết nội dung đã đổi | `hidden`, `focus()`, `tabindex="-1"` | Sau khi gửi xong |
+| 5 | Địa chỉ email hiển thị dạng **đã che**: `nongdan@example.com` → `no***@example.com` | `indexOf`, `String.slice`, nối chuỗi | Xem dòng "đã gửi tới…" |
+| 6 | **Không tiết lộ tài khoản có tồn tại hay không**: nhập `nongdan` (có trong danh sách demo) thì hiện email đã che, nhập tên bất kỳ cũng nhận đúng một thông báo giống nhau | `Array` duyệt bằng `for`, giá trị trả về mặc định | Thử `nongdan` và `khongtonTai123` |
+| 7 | Đếm ngược 60 giây trước khi cho gửi lại; hết thời gian nút đổi thành "Gửi lại liên kết" và bấm được | `setInterval`, `clearInterval`, `textContent` | Panel "Đã gửi liên kết" |
+| 8 | "Dùng tài khoản khác" quay lại form, huỷ đồng hồ đếm ngược và trả focus về ô nhập | `clearInterval`, `hidden`, `focus()` | Bấm link ở panel "Đã gửi" |
+| 9 | Toast phản hồi sau khi gửi / gửi lại | `hidden`, `setTimeout` | Sau mỗi lần gửi |
+
+**Không có email nào được gửi đi**: trang chỉ đổi trạng thái giao diện, tài khoản demo khai báo trong `DEMO_ACCOUNTS` ở đầu `js/forgot.js`.
+
 ## 9. Công nghệ sử dụng
 
 - **HTML5** — semantic: `aside`, `nav`, `header`, `main`, `section`, `article`, `figure`, `table`, `form`, `label`, `input`, `fieldset`/`legend`, `details`, `footer` + ARIA cho tab, modal và dropzone (`role="tab"`, `aria-selected`, `aria-current`, `aria-live`)
 - **CSS3** — CSS Variables, CSS Grid (kể cả biểu đồ cột dựng bằng grid), Flexbox, `:hover`, `:checked`, `@keyframes`, `border-radius` tạo khối ảnh dạng chiếc lá, SVG inline (icon, sóng, cành lá, bông lúa), media query
-- **JavaScript thuần** — không framework, không build, không backend; 9 trang 9 file JS độc lập, dữ liệu là hằng số trong file và `localStorage`
+- **JavaScript thuần** — không framework, không build, không backend; 10 trang với 10 file JS riêng cộng `js/display.js` dùng chung, dữ liệu là hằng số trong file và `localStorage`
 
 ## 10. Cấu trúc thư mục
 
@@ -172,6 +191,7 @@ Bốn trang này tách từ 4 khối trên `index.html` thành 4 trang độc l�
 ├── settings.html       # Cài đặt: hồ sơ, lô ruộng, thông báo, giao diện, bảo mật, dữ liệu
 ├── login.html          # Đăng nhập cho nông dân
 ├── register.html       # Đăng ký tài khoản nông dân
+├── forgot-password.html # Quên mật khẩu (đặt lại qua email — mô phỏng)
 ├── css/
 │   ├── layout.css      # Sidebar + khung trang + các class "Giao diện" dùng chung cho 7 trang
 │   ├── ui.css          # Components dùng chung cho 4 trang mới (topbar, card, form, bảng, modal, toast)
@@ -183,6 +203,7 @@ Bốn trang này tách từ 4 khối trên `index.html` thành 4 trang độc l�
 │   ├── support.css     # Style trang hỗ trợ kỹ thuật
 │   ├── settings.css    # Style trang cài đặt
 │   ├── login.css       # Style trang đăng nhập
+│   ├── forgot.css      # Style trang quên mật khẩu
 │   └── register.css    # Style trang đăng ký
 ├── js/
 │   ├── display.js      # Đọc tuỳ chọn "Giao diện" đã lưu và gắn class lên <html> (nạp ở <head>, dùng cho cả 7 trang)
@@ -194,6 +215,7 @@ Bốn trang này tách từ 4 khối trên `index.html` thành 4 trang độc l�
 │   ├── support.js      # Logic trang hỗ trợ kỹ thuật
 │   ├── settings.js     # Logic trang cài đặt
 │   ├── login.js        # Logic trang đăng nhập
+│   ├── forgot.js       # Logic trang quên mật khẩu
 │   └── register.js     # Logic trang đăng ký
 ├── assets/
 │   ├── hero-rice.png
@@ -213,15 +235,17 @@ Bảy trang bên trong app (`index.html`, `season.html`, `diary.html`, `weather.
 - `position: sticky; top: 0; height: 100vh` + `.side-nav { flex: 1 }` ⇒ nút **Đăng xuất** luôn nằm sát đáy sidebar và đứng yên khi cuộn trang.
 - Markup sidebar ở 7 trang giống hệt nhau theo 7 link: Tổng quan → `index.html`, Mùa vụ → `season.html`, Nhật ký → `diary.html`, Thời tiết → `weather.html`, Trợ lý AI → `ai.html`, Hỗ trợ kỹ thuật → `support.html`, Cài đặt → `settings.html`. Trang đang mở đánh dấu bằng `is-active` + `aria-current="page"`.
 - `css/layout.css` còn định nghĩa các class **"Giao diện"** đặt trên `<html>`: `fs-sm` / `fs-lg` / `fs-xl` (cỡ chữ), `high-contrast` (tương phản cao), `no-motion` (giảm hiệu ứng). Trang Cài đặt lưu lựa chọn vào `smartagri.settings.v1`; cả 7 trang nạp `js/display.js` ở `<head>` để đọc lại lựa chọn đó và gắn class **trước khi vẽ** ⇒ chọn cỡ chữ lớn hay tương phản cao thì toàn bộ app đổi theo, kể cả 3 trang cũ. Selector viết dạng `html body`, `html.high-contrast .card` để ưu tiên cao hơn CSS riêng của từng trang mà không phải sửa các file cũ.
-- Trang đăng nhập/đăng ký không có sidebar nên không dùng file này.
+- Trang đăng nhập, đăng ký và quên mật khẩu không có sidebar nên không dùng hai file này.
 
 ## 11. Responsive
 
-| Màn hình | Season Dashboard | Trang đăng nhập / đăng ký |
+| Màn hình | Season Dashboard | Trang đăng nhập / đăng ký / quên mật khẩu |
 | --- | --- | --- |
 | > 1180px (Desktop) | Sidebar cố định 244px; hero 8 cột + thời tiết 4 cột; AI 5fr + cột phải 7fr | 2 cột: ảnh dạng chiếc lá 42% + cột form; nét viền cong ôm cạnh phải ảnh |
 | ≤ 1180 / 980px (Tablet) | Hero và thời tiết chiếm toàn hàng; AI và cột phải xếp chồng | 1 cột: ảnh thành banner bo góc 520px, form bên dưới, bỏ nét viền cong |
 | ≤ 760 / 560px (Mobile) | Sidebar ẩn, mở bằng nút ☰; mọi card 1 cột; 2 CTA xếp dọc; bảng cuộn ngang | Ảnh 220px, card giảm padding, nút đăng ký chiếm 100% bề rộng, ẩn hình vẽ phụ |
+
+Riêng `forgot-password.html`: thẻ trắng ở cột trái + ảnh ruộng bo vòng tròn ở cột phải (khác `login.html` là ảnh bên trái); 4 ô lục giác biểu tượng đặt chồng lên ảnh; ≤ 980px xếp 1 cột, ảnh thành banner 16/10 bo góc 22px; ≤ 520px thẻ giảm padding và ẩn 2 ô lục giác dưới để chữ không đè ảnh.
 
 Riêng `diary.html`: > 1300px mỗi dòng nhật ký có khối trạng thái + nút Sửa/Xóa ở cạnh phải; ≤ 1300px khối đó xuống dòng dưới để phần mô tả không bị ép hẹp; ≤ 1120px form và danh sách xếp chồng; ≤ 760px sidebar thành drawer, thumbnail chiếm toàn chiều ngang card.
 
@@ -240,6 +264,7 @@ Bốn trang mới (`season.html`, `weather.html`, `ai.html`, `settings.html`) th
 python -m http.server 8000
 # Đăng ký:     http://localhost:8000/register.html
 # Đăng nhập:   http://localhost:8000/login.html     (nongdan / 123456)
+# Quên MK:     http://localhost:8000/forgot-password.html  (mở từ link "Quên mật khẩu?")
 # Trang chủ:   http://localhost:8000/index.html
 # Mùa vụ:      http://localhost:8000/season.html
 # Nhật ký:     http://localhost:8000/diary.html
@@ -263,7 +288,7 @@ Hoặc mở trực tiếp các file `.html` bằng trình duyệt.
 
 - Dữ liệu mùa vụ, thời tiết, thông báo và nhật ký là hằng số khai báo ở đầu `js/main.js` (`season`, `activities`, `notifications`), không có database.
 - Chức năng "Chẩn đoán sơ bộ" **mô phỏng** kết quả AI bằng `setTimeout` và sinh điểm tin cậy ngẫu nhiên 82–96%. Ảnh người dùng **không** rời khỏi máy: `FileReader` chỉ đọc ảnh thành data URL để hiển thị trong trình duyệt.
-- Trang đăng nhập **không có xác thực thật**: so sánh chuỗi với mảng `accounts` rồi chuyển hướng bằng `window.location.href`.
+- Trang đăng nhập **không có xác thực thật**: so sánh chuỗi với mảng `accounts` rồi chuyển hướng bằng `window.location.href`. Trang quên mật khẩu cũng **không gửi email thật** — `js/forgot.js` chỉ đổi sang trạng thái "đã gửi" sau `setTimeout`, tài khoản demo nằm trong hằng số `DEMO_ACCOUNTS`; địa chỉ email hiển thị dạng đã che (`no***@example.com`) và thông báo cố tình giống nhau cho mọi lần nhập để không lộ tài khoản nào có tồn tại.
 - Trang đăng ký lưu hồ sơ vào `localStorage` (khoá `smartagri_accounts`) chỉ để demo việc chống trùng số điện thoại; dữ liệu nằm trên máy người xem, không gửi đi đâu. Khi thuyết trình cần nói rõ đây là luồng giao diện, chưa phải bảo mật.
 - Trang hỗ trợ kỹ thuật (`support.html`) giữ toàn bộ yêu cầu trong mảng `requests` ở đầu `js/support.js`; 7 yêu cầu mẫu và mọi phản hồi của "chuyên gia" đều là dữ liệu dựng sẵn để demo giao diện. Gửi yêu cầu mới chỉ thêm phần tử vào mảng trong phiên hiện tại, **không** lưu và **không** gửi đi đâu — tải lại trang sẽ mất.
 - Bốn trang mới dùng hằng số khai báo ở đầu file JS tương ứng, không có database: `seedSeasons` + `PHASES` (`js/season.js`), `REGIONS` + `TEMP_OFFSET` (`js/weather.js`), `DISEASES` + `CHAT_KB` (`js/ai.js`), `DEFAULTS` + `SESSIONS` (`js/settings.js`).

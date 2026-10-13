@@ -207,6 +207,16 @@ img {
   color: var(--error);
 }
 
+/* ---------- Link quên mật khẩu ---------- */
+.forgot-row {
+  margin: -4px 0 12px;
+  text-align: right;
+}
+
+.forgot-row .back-link {
+  font-size: 0.86rem;
+}
+
 /* ---------- Nút đăng nhập ---------- */
 .btn-login {
   width: 100%;

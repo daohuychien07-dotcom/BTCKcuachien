@@ -698,6 +698,7 @@ img {
   font-family: inherit;
   font-size: 0.95rem;
   font-weight: 600;
+  text-decoration: none;
   cursor: pointer;
   transition: background-color 0.2s ease, box-shadow 0.2s ease;
 }

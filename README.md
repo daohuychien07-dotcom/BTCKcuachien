@@ -224,6 +224,7 @@ Mở từ link **"Quên mật khẩu?"** ngay dưới ô mật khẩu trên tran
 │   ├── avatar-farmer.png
 │   ├── logo.svg
 │   └── favicon.svg
+├── youtobe             # Link video thuyết minh
 └── README.md
 ```
 
@@ -281,7 +282,7 @@ Hoặc mở trực tiếp các file `.html` bằng trình duyệt.
 | Nội dung | Link |
 | --- | --- |
 | Link Figma | _Điền link Figma của bạn_ |
-| Link video | _Điền link video — tên file: `CSE122-GK-SVxx-TenSinhVien-SeasonDashboard`_ |
+| Link video | https://youtu.be/r-eW5GXDfPM (chi tiết trong file [`youtobe`](youtobe) — tên file yêu cầu: `CSE122-GK-SVxx-TenSinhVien-SeasonDashboard`) |
 | Link GitHub | https://github.com/daohuychien07-dotcom/BTCKcuachien |
 
 ## 14. Ghi chú cho phần thuyết minh

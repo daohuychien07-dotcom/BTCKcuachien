@@ -283,7 +283,7 @@ Hoặc mở trực tiếp các file `.html` bằng trình duyệt.
 | --- | --- |
 | Link Figma | _Điền link Figma của bạn_ |
 | Link video | https://youtu.be/r-eW5GXDfPM (chi tiết trong file [`youtobe`](youtobe) — tên file yêu cầu: `CSE122-GK-SVxx-TenSinhVien-SeasonDashboard`) |
-| Link web (chạy local) | http://localhost:8000/login.html — trang đầu tiên của luồng demo; chạy `python -m http.server 8000` rồi mở, xem mục 12. Repo đang để **Private** nên chưa có link công khai. |
+| Link web (điểm vào) | http://localhost:8000/login.html — luôn gửi link có `/login.html` để người bấm thấy **trang đăng nhập** trước. Nếu gửi link gốc `http://localhost:8000/` thì `index.html` (Season Dashboard) hiện ra ngay, bỏ qua bước đăng nhập. Chạy `python -m http.server 8000` rồi mở, xem mục 12. Repo đang **Private** và chưa bật Pages nên chưa có link công khai. |
 | Link GitHub | https://github.com/daohuychien07-dotcom/BTCKcuachien |
 
 ## 14. Ghi chú cho phần thuyết minh

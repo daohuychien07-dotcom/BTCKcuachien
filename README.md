@@ -1,13 +1,24 @@
-# SmartAgri — Season Dashboard
+# SmartAgri — Trang "Season Dashboard — Bảng điều khiển mùa vụ"
 
-Trang chính của hệ thống **SmartAgri — Trí tuệ cho mùa vàng**, thực hiện cho bài kiểm tra giữa kỳ học phần **Phát triển ứng dụng Web cơ bản (CSE122)**.
+Bài kiểm tra giữa kỳ · Học phần Phát triển ứng dụng Web cơ bản (CSE122)
+
+| Thông tin | Nội dung |
+| --- | --- |
+| **Tên đề tài** | SmartAgri — Hệ thống hỗ trợ quản lý mùa vụ thông minh cho nông dân |
+| **Tên trang đã thực hiện** | Season Dashboard — Bảng điều khiển mùa vụ (`index.html`) |
+| **Sinh viên thực hiện** | `<HỌ VÀ TÊN>` — MSSV `<MSSV>` |
+| **Link Figma** | `<DÁN LINK FIGMA VÀO ĐÂY>` |
+| **Link video** | https://youtu.be/r-eW5GXDfPM |
+| **Link GitHub** | https://github.com/daohuychien07-dotcom/BTCKcuachien |
+| **Chạy thử** | Mở `index.html` bằng trình duyệt (không cần server), hoặc chạy `python -m http.server 8000` rồi mở http://localhost:8000/login.html |
+| **Chạy thử online** | https://daohuychien07-dotcom.github.io/BTCKcuachien/login.html (GitHub Pages) |
+
+Bản chi tiết của các link (kèm tên file video theo yêu cầu và danh sách 10 trang) nằm ở mục 12 và mục 13.
 
 ## 1. Thông tin chung
 
 | Nội dung | Chi tiết |
 | --- | --- |
-| Tên đề tài BTL | SmartAgri — Hệ thống hỗ trợ quản lý mùa vụ thông minh cho nông dân |
-| Tên trang đã thực hiện | Season Dashboard — Bảng điều khiển mùa vụ (`index.html`) |
 | Trang phụ trợ | `login.html` (Đăng nhập), `register.html` (Đăng ký), `forgot-password.html` (Quên mật khẩu) |
 | Trang chức năng | `season.html` (Mùa vụ), `diary.html` (Nhật ký), `weather.html` (Thời tiết), `ai.html` (Trợ lý AI), `support.html` (Hỗ trợ kỹ thuật), `settings.html` (Cài đặt) |
 | Luồng sử dụng | Đăng ký → Đăng nhập → Season Dashboard → 6 trang chức năng (liên kết qua lại ở sidebar); Quên mật khẩu đi từ link "Quên mật khẩu?" trên trang đăng nhập |
@@ -284,7 +295,7 @@ https://daohuychien07-dotcom.github.io/BTCKcuachien/login.html — mọi đườ
 
 | Nội dung | Link |
 | --- | --- |
-| Link Figma | _Điền link Figma của bạn_ |
+| Link Figma | `<DÁN LINK FIGMA VÀO ĐÂY>` |
 | Link video | https://youtu.be/r-eW5GXDfPM (chi tiết trong file [`youtobe`](youtobe) — tên file yêu cầu: `CSE122-GK-SVxx-TenSinhVien-SeasonDashboard`) |
 | Link web (online) | **https://daohuychien07-dotcom.github.io/BTCKcuachien/login.html** — GitHub Pages, build từ nhánh `master` / `(root)`. Gửi link có `/login.html` để người bấm thấy **trang đăng nhập** trước; link gốc `https://daohuychien07-dotcom.github.io/BTCKcuachien/` mở thẳng `index.html` (Season Dashboard), bỏ qua bước đăng nhập. |
 | Link web (chạy local) | `python -m http.server 8000` trong thư mục repo rồi mở http://localhost:8000/login.html (danh sách 10 trang ở mục 12). |

@@ -10,7 +10,7 @@ Bài kiểm tra giữa kỳ · Học phần Phát triển ứng dụng Web cơ b
 | **Link Figma** | `<DÁN LINK FIGMA VÀO ĐÂY>` |
 | **Link video** | https://youtu.be/r-eW5GXDfPM |
 | **Link GitHub** | https://github.com/daohuychien07-dotcom/BTCKcuachien |
-| **Chạy thử** | Mở `index.html` bằng trình duyệt (không cần server), hoặc chạy `python -m http.server 8000` rồi mở http://localhost:8000/login.html |
+| **Chạy thử** | Mở `index.html` bằng trình duyệt (không cần server), hoặc mở https://daohuychien07-dotcom.github.io/smartagri-roles-preview/login.html |
 | **Chạy thử online** | https://daohuychien07-dotcom.github.io/BTCKcuachien/login.html (GitHub Pages) |
 
 Bản chi tiết của các link (kèm tên file video theo yêu cầu và danh sách 10 trang) nằm ở mục 12 và mục 13.
